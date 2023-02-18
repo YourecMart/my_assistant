@@ -1,26 +1,28 @@
 
 import React, { useState } from 'react';
 import './propertyBtnEl.css';
-import { Button } from 'reactstrap';
 
+interface IPropertBtnEl{
+    onColorChange: any
+}
 
-const PropertyBtnEl: React.FC = () => {
+const PropertyBtnEl: React.FC<IPropertBtnEl> = ({onColorChange}) => {
     const [purpleBtnActive, setpurpleBtnActive] = useState(false)
+    const handleColorChange = (isPurple: boolean) =>{
+        setpurpleBtnActive(isPurple)
+        onColorChange(isPurple)
+    }
     return (
         <div className='AdmPagePropertyButtons'>
 
                     <div style={{ display: 'flex', gap: '5px' }}>
-                        <Button className='ColorBtn'
+                        <button className={`color__btn${purpleBtnActive ? '_active': ''}`}
                             style={{ backgroundColor: '#8C69D6' }}
-                            onClick={() => setpurpleBtnActive(true)}
-                            disabled = {purpleBtnActive}
+                            onClick={() => handleColorChange(true)}
                         />
-
-
-                        <Button className='ColorBtn'
+                        <button className={`color__btn${purpleBtnActive ? '': '_active'}`}
                             style={{ backgroundColor: '#FAA619' }}
-                            onClick={() => setpurpleBtnActive(false)}
-                            disabled = {!purpleBtnActive}
+                            onClick={() => handleColorChange(false)}                       
                         />
                     </div>
         </div>

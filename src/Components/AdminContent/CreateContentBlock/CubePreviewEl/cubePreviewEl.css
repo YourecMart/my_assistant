@@ -1,15 +1,51 @@
 .cube{
     width: 100px;
     height: 100px;
-    position: relative;
+    position: absolute;
     left: 270px;
     top: 120px;
 }
 .cube_answer{
+    margin: 0 auto;
     display: flex;
-    position: relative;
+    justify-content: center;
+    padding: 5px;
+    min-width: 30px;
+    min-height: 30px;
+    width: fit-content;
+    position: absolute;
+    border-radius: 5px;
+    align-items: center;
+}
+.cube_answer:nth-child(1){
+    left: 300px;
+    top: 70px
+    
+}
+.cube_answer:nth-child(2){
+    left: 250px;
+    top: 100px
+    
+}
+.cube_answer:nth-child(3){
+    left: 210px;
+    top: 150px
+    
+}
+.cube_answer:nth-child(4){
+    left: 225px;
+    top: 190px
+    
+}
+.cube_answer:nth-child(5){
+    left: 250px;
+    top: 220px    
 }
 
 .AdmPageExample-wrapper{
     background-image: url('./back.png');
+    width: 401px;
+    height: 252px;
+    border-radius: 15px;
+    position: relative;
 }

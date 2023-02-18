@@ -4,14 +4,23 @@ import './createContentBlock.css';
 import { Button, Modal, InputGroup, Input, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import PropertyBtnEl from './PropertyBtnEl/propertyBtnEl';
 import CubePreviewEl from './CubePreviewEl/cubePreviewEl';
-
+import ICubeButton from "./CubePreviewEl/cubePreviewEl"
 
 const NameSpaceBlock: React.FC = () => {
-    const [buttons, setButtons] = useState<string[]>([])
+    const [buttons, setButtons] = useState<{
+        text: string;
+        isPurple: boolean;
+    }[]>([])
     const [modal, setModal] = useState(false)
     const [buttonText, setButtonText] = useState('')
-    
+    const [btnColor, setColor] = useState<boolean>(false)
     const toggle = () => setModal(!modal)
+
+
+   const handleBtnColor = (btnColor: boolean) => {
+    setColor(btnColor)
+   }
+
     return (
         <div className={'AdmPageCreateContent-wrapper'}>
             <div className={'AdmPageAddContent-wrapper'}>
@@ -20,11 +29,28 @@ const NameSpaceBlock: React.FC = () => {
                 </div>
                 <div className={'AdmPageAddContentActions'}>
                     <div>
-                        <p style={{ color: 'gray' }}>Текст плашки</p>
+                        <div style={{display: 'flex', justifyContent: 'space-evenly'}}>
+                            <p style={{ color: 'gray' }}>Текст кнопки</p>
+                            <p style={{ color: 'gray' }}>Цвет</p>
+                        </div>
                         <div className={'AdmPageAddContentButtons'}>
                             {
-                                buttons.length ? buttons.map(button =>
-                                    <Button color={'white'} style={{ width: '300px', border: '1px solid black' }}>{button}</Button>
+                                buttons.length ? buttons.map((button, index) =>
+                                    <div style={{display: 'flex', gap: '10px' }}>
+                                        <div>
+                                            <div className='ContentButton'>
+                                                {button.text}
+                                            </div>
+                                            <div style={{display: 'flex',justifyContent: 'space-between'}}>
+                                                <a>
+                                                 редактировать
+                                                    </a>
+                                                <a>удалить</a>
+                                            </div>
+                                        </div>
+                                        <PropertyBtnEl onColorChange={handleBtnColor}/>
+                                    </div>
+
                                 )
                                     :
                                     <></>
@@ -32,8 +58,9 @@ const NameSpaceBlock: React.FC = () => {
                         </div>
 
                         <Button color={'white'}
-                            style={{ width: '200px', border: '1px solid black', marginTop: '5px' }}
+                            style={{ width: '200px', border: '2px solid black', marginTop: '5px' }}
                             onClick={toggle}
+                            disabled={buttons.length < 5 ? false : true}
                         >
                             Добавить кнопку
                         </Button>
@@ -47,8 +74,13 @@ const NameSpaceBlock: React.FC = () => {
                             <ModalFooter>
                                 <Button color="secondary" onClick={() => {
                                     if (buttonText) {
+                                        let button = {
+                                            text: buttonText,
+                                            isPurple: true
+                                        }
                                         setButtonText('')
-                                        setButtons([...buttons, buttonText])
+                                        
+                                        setButtons([...buttons, button])
                                         toggle()
                                     }
                                 }}>
@@ -65,21 +97,12 @@ const NameSpaceBlock: React.FC = () => {
 
                     </div>
                     <div>
-                        <p style={{ color: 'gray' }}>Свойство</p>
-                        <div className={'AdmPageAddPropertyButtons'}>
-                            {
-                                buttons.map(btn =>
-                                  <PropertyBtnEl/>
-                                )
-                            }
-
-
-                        </div>
+              
                     </div>
                 </div>
             </div>
             <div>
-               <CubePreviewEl buttons={buttons}/>
+                <CubePreviewEl buttons={buttons} />
             </div>
         </div>
     );
