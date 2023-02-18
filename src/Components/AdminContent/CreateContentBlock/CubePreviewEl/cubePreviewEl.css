@@ -1,0 +1,15 @@
+.cube{
+    width: 100px;
+    height: 100px;
+    position: relative;
+    left: 270px;
+    top: 120px;
+}
+.cube_answer{
+    display: flex;
+    position: relative;
+}
+
+.AdmPageExample-wrapper{
+    background-image: url('./back.png');
+}

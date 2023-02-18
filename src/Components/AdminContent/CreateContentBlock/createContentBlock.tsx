@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import './createContentBlock.css';
 import { Button, Modal, InputGroup, Input, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import PropertyBtnEl from './PropertyBtnEl/propertyBtnEl';
+import CubePreviewEl from './CubePreviewEl/cubePreviewEl';
 
 
 const NameSpaceBlock: React.FC = () => {
@@ -78,9 +79,7 @@ const NameSpaceBlock: React.FC = () => {
                 </div>
             </div>
             <div>
-                <div className={'AdmPageExample-wrapper'} style={{ width: '401px', height: '252px', borderRadius: '15px', backgroundColor: 'gray' }}>
-
-                </div>
+               <CubePreviewEl buttons={buttons}/>
             </div>
         </div>
     );
