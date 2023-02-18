@@ -1,0 +1,8 @@
+.AdmPage-wrapper {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+    background-color: whitesmoke;
+    column-gap: 15px;
+}

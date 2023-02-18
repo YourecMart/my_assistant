@@ -1,18 +1,18 @@
 import React from 'react';
 import './App.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { Button } from 'reactstrap';
+import NavMenu from './Components/NavMenu/navMenu';
+import AdminContent from './Components/AdminContent/adminContent';
+
+
 
 function App() {
   return (
-    <div className="App">
-      <Button
-        color="primary"
-        href="#"
-        tag="a"
-      >Тестовая кнопка реактстрапа</Button>
+    <div className="AdmPage-wrapper">
+        <NavMenu/>
+        <AdminContent/>
+        
     </div>
-  );
+);
 }
 
 export default App;

@@ -1,0 +1,51 @@
+.AdmPageCreateContent-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: white;
+    padding: 20px;
+    margin-top: 5px;
+    border: 0px solid black;
+    border-radius: 15px;
+    column-gap: 100px;
+}
+
+.AdmPageNameSystem-head {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.AdmPageNameSystem-items {
+    display: flex;
+    flex-direction: column;
+}
+
+.AdmPageNameSystem-item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 5px;
+}
+
+.AdmPageNameSystem-wrapper {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 15px;
+    padding: 20px;
+    row-gap: 15px;
+}
+
+
+
+.AdmPageNameSystem-itemActions {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    column-gap: 15px;
+}
+
+.AdmPageNameSystem-itemName {
+    font-weight: 600;
+}
