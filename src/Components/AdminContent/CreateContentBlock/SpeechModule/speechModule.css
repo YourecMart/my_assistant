@@ -1,0 +1,14 @@
+.speech_module_btn{
+
+    margin: 10px;
+    background-color: #8C69D6;
+
+}
+
+.mic-icon{
+
+    display: flex;
+    justify-content: center;
+   padding-left: 100px;
+ 
+}
