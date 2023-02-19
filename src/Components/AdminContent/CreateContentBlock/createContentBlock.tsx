@@ -6,10 +6,11 @@ import PropertyBtnEl from './PropertyBtnEl/propertyBtnEl';
 import CubePreviewEl from './CubePreviewEl/cubePreviewEl';
 import ICubeButton from "./CubePreviewEl/cubePreviewEl"
 
+
 const NameSpaceBlock: React.FC = () => {
     const [buttons, setButtons] = useState<{
         text: string;
-        isPurple: boolean;
+        color: string;
     }[]>([])
     const [modal, setModal] = useState(false)
     const [buttonText, setButtonText] = useState('')
@@ -17,8 +18,8 @@ const NameSpaceBlock: React.FC = () => {
     const toggle = () => setModal(!modal)
 
 
-   const handleBtnColor = (btnColor: boolean) => {
-    setColor(btnColor)
+   const handleBtnColor = (buttons: any[]) => {
+    setButtons(buttons)
    }
 
     return (
@@ -48,7 +49,7 @@ const NameSpaceBlock: React.FC = () => {
                                                 <a>удалить</a>
                                             </div>
                                         </div>
-                                        <PropertyBtnEl onColorChange={handleBtnColor}/>
+                                        <PropertyBtnEl onColorChange={handleBtnColor} buttons = {buttons} buttonIndex = {index}/>
                                     </div>
 
                                 )
@@ -76,7 +77,8 @@ const NameSpaceBlock: React.FC = () => {
                                     if (buttonText) {
                                         let button = {
                                             text: buttonText,
-                                            isPurple: true
+                                            color:  '#8C69D6',
+                                          
                                         }
                                         setButtonText('')
                                         

@@ -8,26 +8,24 @@ import { Button, Modal, InputGroup, Input, ModalHeader, ModalBody, ModalFooter }
 
 export interface ICubeButton{
     text: string;
-    isPurple: boolean
+    color: string;
 }
 export interface ICubePreviewEl{
     buttons: ICubeButton[]
 }
 const CubePreviewEl: React.FC<ICubePreviewEl> = ({buttons}) => {
-   
+
     return (
         <div className={'AdmPageExample-wrapper'}>
         
             <div>
                 {
-                    buttons && buttons.map(button => 
-                        
-                            button.isPurple 
-                            ?
-                            <div className='cube_answer' style={{backgroundColor: '#8C69D6'}}>{button.text}</div>
-                            :
-                            <div className='cube_answer' style={{backgroundColor: '#FAA619'}}>{button.text}</div>
-                    )
+                    buttons && buttons.map(button => {
+                
+
+
+                       return <div className='cube_hint' style={{ backgroundColor: `${button.color}`}}>{button.text}</div>
+                    })
                 }
             </div>
             <img className='cube' src={require('./img.png')}/>
