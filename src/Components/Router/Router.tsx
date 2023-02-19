@@ -18,9 +18,6 @@ interface RouterI {}
           path="/events"
           element={<AdminContent/>}
         />
-     
-
-      
       </Routes>
   );
 };

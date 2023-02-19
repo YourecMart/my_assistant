@@ -5,6 +5,7 @@ import { Button, Modal, InputGroup, Input, ModalHeader, ModalBody, ModalFooter }
 import PropertyBtnEl from './PropertyBtnEl/propertyBtnEl';
 import CubePreviewEl from './CubePreviewEl/cubePreviewEl';
 import ICubeButton from "./CubePreviewEl/cubePreviewEl"
+import SpeechModule from './SpeechModule/speechModule';
 
 
 const CreateContentBlock: React.FC = () => {
@@ -105,6 +106,9 @@ const CreateContentBlock: React.FC = () => {
               
                     </div>
                 </div>
+            </div>
+            <div>
+                <SpeechModule/>
             </div>
             <div>
                 <CubePreviewEl buttons={buttons} />
