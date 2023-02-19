@@ -1,12 +1,8 @@
 
 import React from 'react';
 import './editComponent.css';
-import { InputGroup, Input, FormGroup } from 'reactstrap';
+import {Input, FormGroup } from 'reactstrap';
 
-interface IEditComponent {
-    isActive: boolean
-
-}
 const EditComponent: React.FC = () => {
 
     return (

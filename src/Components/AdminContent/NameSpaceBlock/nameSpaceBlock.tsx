@@ -4,10 +4,16 @@ import './nameSpaceBlock.css';
 import { InputGroup, Input, InputGroupText } from 'reactstrap';
 import NameSpaceItem from './NameSpaceItem/nameSpaceItem';
 
-const CreateContentBlock: React.FC = () => {
+
+const NameSpaceBlock: React.FC = () => {
     const items = ['rosnmol_input', 'rosnmol_btn', '_font_rosnmol_1', 'rosnmol_input2']
     const [filteredItems, setFilteredItems] = useState([''])
     
+
+    const handleRemovedItems = (filteredItems: string[]) =>{
+        setFilteredItems(filteredItems)
+    }
+
     useEffect(()=>{
     setFilteredItems(items)
     }, [])
@@ -43,7 +49,7 @@ const CreateContentBlock: React.FC = () => {
             <div className={'AdmPageNameSystem-items'}>
                 {
                   filteredItems && filteredItems.map((item) =>
-                        <NameSpaceItem key = {item + Date.now()} itemName={item}/>
+                        <NameSpaceItem key = {item + Date.now()} handleRemovedItems = {handleRemovedItems} items = {filteredItems}  itemName={item}/>
                     )
                 }
 
@@ -52,7 +58,7 @@ const CreateContentBlock: React.FC = () => {
     );
 }
 
-export default CreateContentBlock
+export default NameSpaceBlock
 
 
 

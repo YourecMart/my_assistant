@@ -7,17 +7,20 @@ import CubePreviewEl from './CubePreviewEl/cubePreviewEl';
 import ICubeButton from "./CubePreviewEl/cubePreviewEl"
 
 
-const NameSpaceBlock: React.FC = () => {
+const CreateContentBlock: React.FC = () => {
     const [buttons, setButtons] = useState<{
         text: string;
         color: string;
     }[]>([])
     const [modal, setModal] = useState(false)
     const [buttonText, setButtonText] = useState('')
-    const [btnColor, setColor] = useState<boolean>(false)
     const toggle = () => setModal(!modal)
 
-
+    const removeButton = (index: number) => {
+        console.log(buttons);
+        let btnsClone = [...buttons].filter((v,i) => i !== index )
+        setButtons(btnsClone)
+    }
    const handleBtnColor = (buttons: any[]) => {
     setButtons(buttons)
    }
@@ -46,7 +49,7 @@ const NameSpaceBlock: React.FC = () => {
                                                 <a>
                                                  редактировать
                                                     </a>
-                                                <a>удалить</a>
+                                                <p style={{cursor: 'pointer'}} onClick={()=>removeButton(index)}>удалить</p>
                                             </div>
                                         </div>
                                         <PropertyBtnEl onColorChange={handleBtnColor} buttons = {buttons} buttonIndex = {index}/>
@@ -110,7 +113,7 @@ const NameSpaceBlock: React.FC = () => {
     );
 }
 
-export default NameSpaceBlock
+export default CreateContentBlock
 
 
 

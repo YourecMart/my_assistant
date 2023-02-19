@@ -5,14 +5,19 @@ import { Modal, Button, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import EditComponent from '../../EditComponent/editComponent';
 
 interface INameSpaceItem {
-    itemName: string
+    itemName: string;
+    items: string[];
+    handleRemovedItems: Function
 }
-const NameSpaceItem: React.FC<INameSpaceItem> = ({ itemName }) => {
+const NameSpaceItem: React.FC<INameSpaceItem> = ({ itemName, items, handleRemovedItems }) => {
 
     const [modalEdit, setModalEdit] = useState(false)
 
     const toggleEdit = () => {
         setModalEdit(!modalEdit)
+    }
+    const onRemove = (itemName: string) => {
+        handleRemovedItems([...items].filter((curItem) => curItem != itemName))
     }
 
     return (
@@ -23,13 +28,15 @@ const NameSpaceItem: React.FC<INameSpaceItem> = ({ itemName }) => {
                 <p>{itemName}</p>
             </div>
             <div className={'AdmPageNameSystem-itemActions'}>
-            
-                <a style={{cursor: 'pointer', color: 'black', fontWeight: '500' }}
-                    onClick={ toggleEdit}
+
+                <a style={{ cursor: 'pointer', color: 'black', fontWeight: '500' }}
+                    onClick={toggleEdit}
                 >
-                   Редактировать
+                    Редактировать
                 </a>
-                <a style={{ color: 'gray', fontWeight: '500' }}>Удалить</a>
+                <a onClick={() => onRemove(itemName)} style={{ color: 'gray', fontWeight: '500', cursor: 'pointer' }}>
+                    Удалить
+                </a>
             </div>
 
 
@@ -43,7 +50,7 @@ const NameSpaceItem: React.FC<INameSpaceItem> = ({ itemName }) => {
                     <Button color="secondary" onClick={() => {
                         toggleEdit()
                     }}>
-                        Добавить
+                        Подтвердить
                     </Button>
                     <Button color="secondary" onClick={() => {
                         toggleEdit()
